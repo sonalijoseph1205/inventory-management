@@ -1,8 +1,11 @@
+const env = require('dotenv').config();
 const mongoose= require('mongoose');
 
 
+
+
 //to connect to mongoose
-mongoose.connect('mongodb+srv://admin-sonali:sonali1205@cluster0.3v3kd.mongodb.net/SalesDataDB?retryWrites=true&w=majority',{useNewUrlParser: true},(err)=>
+mongoose.connect(process.env.MongoURI,{useNewUrlParser: true},(err)=>
 {
     if(!err)
     {
