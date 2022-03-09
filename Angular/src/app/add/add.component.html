@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+            <div id="salesData">
+                <div class="form-group">
+                    
+                    <label for="date">
+                        Date
+                    </label>
+
+                    <input type="date"
+                     id="date" 
+                    name="date" 
+                    class="form-control"
+                   ngModel
+                    required
+                    #date="ngModel"
+                    >
+
+                    <span class="help-block" *ngIf="!date.valid && date.touched">Please enter a valid input</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">
+                        Sale
+                    </label>
+                    <input type="text"
+                     id="sale" 
+                    name="sale" 
+                    class="form-control"
+                   ngModel
+                    required
+                   #sale="ngModel"
+                  >
+                   <span class="help-block" *ngIf="!sale.valid && sale.touched">Please enter a valid input</span>
+                </div>
+                <div class="form-group">
+                    <label for="date">
+                        Purchase
+                    </label>
+                    <input type="text"
+                     id="purchase" 
+                    name="purchase" 
+                    class="form-control"
+                    ngModel
+                   #purchase="ngModel"
+                    required
+                   >
+                    <span class="help-block" *ngIf="!purchase.valid && purchase.touched">Please enter a valid input</span>
+                </div>
+                <div class="form-group">
+                    <label for="date">
+                        Credit
+                    </label>
+                    <input type="text"
+                     id="credit" 
+                    name="credit" 
+                    ngModel
+                    class="form-control"
+                    #credit="ngModel"
+                    required
+                   >
+<span class="help-block" *ngIf="!credit.valid && credit.touched">Please enter a valid input</span>
+                </div>
+            </div>
+            <button 
+            class="btn btn-primary"
+            [disabled]="!myForm.valid">Submit</button>
+        </form>
+    </div>
+    </div>
+</div>
