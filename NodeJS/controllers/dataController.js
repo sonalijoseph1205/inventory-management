@@ -44,8 +44,8 @@ router.post('/viewdata',(req,res)=>
     var secondDate = new Date(req.body.date2)
 
         data.find({        
-            created:{ $gte:firstDate,
-                $lte:secondDate
+            date:{ $gte:firstDate,
+                $lt:secondDate
             }     
     })
     .then(data=>{
