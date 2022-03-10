@@ -18,9 +18,15 @@ export class ViewComponent implements OnInit {
   }
   onSubmit(form: NgForm)
   {
-    this.SalesService.viewData(form.value).subscribe(data=>{
-      console.log(data)
-      this.TotalData = data
+    this.SalesService.viewData(form.value).subscribe((data:any)=>{
+      if(data){
+          if(data['status']){
+            console.log(data)
+          }
+          else{
+             this.TotalData = data
+          }
+      }
     })
     //  console.log(form.value);
 

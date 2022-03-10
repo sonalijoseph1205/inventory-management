@@ -42,7 +42,10 @@ router.post('/viewdata',(req,res)=>
 {
     var firstDate = new Date(req.body.date)
     var secondDate = new Date(req.body.date2)
-
+    if((firstDate - secondDate)>0){
+        res.status(200).json({'status':"date is not given correctly"})
+    }
+    else{
         data.find({        
             date:{ $gte:firstDate,
                 $lt:secondDate
@@ -52,6 +55,9 @@ router.post('/viewdata',(req,res)=>
         res.json(data)
     })
     .catch(err=>console.log(err))
+    }
+
+
 })
 router.post('/getdata',(req,res)=>{
     //of type data model class
