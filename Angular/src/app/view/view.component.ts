@@ -11,6 +11,7 @@ import { SalesDataServiceService } from '../shared/sales-data-service.service';
 })
 export class ViewComponent implements OnInit {
 
+  TotalData: any
   constructor(private SalesService : SalesDataServiceService) { }
 
   ngOnInit(): void {
@@ -19,8 +20,9 @@ export class ViewComponent implements OnInit {
   {
     this.SalesService.viewData(form.value).subscribe(data=>{
       console.log(data)
+      this.TotalData = data
     })
-     console.log(form.value);
+    //  console.log(form.value);
 
    
      

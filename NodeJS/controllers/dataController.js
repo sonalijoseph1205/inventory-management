@@ -40,15 +40,16 @@ router.get('/:id',(req,res)=>
 
 router.post('/viewdata',(req,res)=>
 {
+    var firstDate = new Date(req.body.date)
+    var secondDate = new Date(req.body.date2)
 
-        data.find({
-            created_at: {
-                $gte: new Date(req.body.date),
-                $lt:new Date(req.body.date2)
-            }
+        data.find({        
+            created:{ $gte:firstDate,
+                $lte:secondDate
+            }     
     })
     .then(data=>{
-        console.log(data)
+        res.json(data)
     })
     .catch(err=>console.log(err))
 })
